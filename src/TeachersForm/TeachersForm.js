@@ -140,7 +140,7 @@ function TeachersForm() {
       createdAt: new Date().toLocaleString(),
       dateTime: Date.now().toString(),
     });
-    // hist.push("/dash");
+    hist.push("/teacherdash");
   };
 
   const LogInNewUser = async () => {
@@ -447,19 +447,20 @@ function TeachersForm() {
                         }}
                         onChange={(e) => setpassword(e.target.value)}
                       />{" "}
-                      {open ? (
-                        <TeacherProfile
-                          setprofile={setprofile}
-                          setQualification={setQualification}
-                          UploadMultipleFile={UploadMultipleFile}
-                          SignUpUser={SignUpUser}
-                          MultipleFileChange={MultipleFileChange}
-                          setDescription={setDescription}
-                          profile={profile}
-                          qualification={qualification}
-                          mulitpleFileOptions={mulitpleFileOptions}
-                        />
-                      ) : null}
+                      <Button
+                        type="primary"
+                        block
+                        style={{
+                          marginTop: "10px",
+                        }}
+                        onClick={() => {
+                          UploadMultipleFile();
+                          // uploadSingleFiles();
+                          SignUpUser();
+                        }}
+                      >
+                        Continue
+                      </Button>
                       {/* <div
                         style={{
                           display: "flex",

@@ -81,6 +81,7 @@ function TeacherProfile({
         }}
         onClick={() => {
           handleOpen();
+          hist.push("/schooldash");
           // UploadMultipleFile();
           // uploadSingleFiles();
           // SignUpUser();

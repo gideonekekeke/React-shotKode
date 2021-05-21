@@ -5,10 +5,12 @@ import mailimg from "./img/trophy_1f3c61.png";
 import def from "./img/12.jfif";
 import phoneimg from "./img/round-pushpin_1f4cd2.png";
 import popimg from "./img/round-pushpin_1f4cd3.png";
-import { Button } from "antd";
+import { Button, Input } from "antd";
 import { app } from "../Base";
 import { GlobalContext } from "../AuthState/GlobalContext";
 import { useHistory } from "react-router-dom";
+import CvUpdate1 from "./CvUpdate1";
+import TeacherProfile from "../TeachersForm/TeacherProfile";
 const db = app.firestore().collection("Teachers");
 function SeconDash({ avatar }) {
   const hist = useHistory();
@@ -17,7 +19,6 @@ function SeconDash({ avatar }) {
 
   const getName = async (id) => {
     const newUser = await app.auth().currentUser;
-
     if (newUser) {
       db.doc(newUser.uid)
         .get()
@@ -36,7 +37,7 @@ function SeconDash({ avatar }) {
         display: "flex",
         justifyContent: "center",
         backgroundColor: "white",
-        height: "520px",
+        height: "550px",
         borderRadius: "10px",
       }}
     >
@@ -231,19 +232,8 @@ function SeconDash({ avatar }) {
               marginTop: "15px",
             }}
           ></div>
-
-          <div>
-            <Button
-              type="primary"
-              block
-              style={{
-                marginTop: "50px",
-                marginBottom: "40px",
-              }}
-            >
-              Edit Profile
-            </Button>
-          </div>
+          <br />
+          <CvUpdate1 />
         </div>
         <div></div>
       </div>

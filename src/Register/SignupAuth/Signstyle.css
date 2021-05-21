@@ -42,11 +42,11 @@
     /* background-color: red; */
   }
 }
-.first_box {
+.first_box3 {
   height: 100%;
 
   width: 350px;
-  height: 500px;
+  height: 450px;
   align-items: center;
   background: linear-gradient(130deg, #4285f4 -50%, #ffffff 46%, #ffffff 100%);
   border-right: 1px solid silver;
@@ -54,11 +54,11 @@
 }
 
 @media screen and (max-width: 600px) {
-  .first_box {
+  .first_box3 {
     height: 100%;
 
     width: 320px;
-    height: 400px;
+    /* height: 400px; */
     align-items: center;
     background: linear-gradient(
       130deg,
@@ -71,20 +71,20 @@
   }
 }
 
-.second_box {
+.second_box3 {
   height: 100%;
   background: white;
   width: 400px;
-  height: 500px;
+  height: 450px;
   border-radius: 5px;
 }
 
 @media screen and (max-width: 600px) {
-  .second_box {
+  .second_box3 {
     height: 100%;
     /* background-color: white; */
     width: 350px;
-    height: 400px;
+    /* height: 400px; */
     border-radius: 5px;
     margin-top: 10px;
   }

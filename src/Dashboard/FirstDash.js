@@ -8,7 +8,7 @@ import "./userstyle.css";
 
 const dataBase = app.firestore().collection("Schools");
 
-function FirstDash({ avatar }) {
+function FirstDash({ avatar, qualification }) {
   const [singleFiles, setSingleFiles] = useState([]);
   const [multipleFiles, setMultipleFiles] = useState([]);
   const [data, setData] = useState([]);

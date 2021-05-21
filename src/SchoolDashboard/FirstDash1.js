@@ -8,7 +8,7 @@ import "./userstyle.css";
 
 const dataBase = app.firestore().collection("Teachers");
 
-function FirstDash1({ avatar }) {
+function FirstDash1({ avatar, description }) {
   const [singleFiles, setSingleFiles] = useState([]);
   const [multipleFiles, setMultipleFiles] = useState([]);
   const [data, setData] = useState([]);
@@ -92,7 +92,17 @@ function FirstDash1({ avatar }) {
         </div>
 
         {data.map(
-          ({ id, experience, fullname, location, subject, salary, avatar }) => (
+          ({
+            id,
+            experience,
+            fullname,
+            location,
+            subject,
+            salary,
+            avatar,
+            description,
+            qualification,
+          }) => (
             <div
               key={id}
               style={{

@@ -4,7 +4,7 @@ import FirstDash1 from "./FirstDash1";
 import HeaderView from "./HeaderView1";
 import SeconDash1 from "./SeconDash1";
 
-function MainDash1({ avatar }) {
+function MainDash1({ avatar, description }) {
   return (
     <div style={{ height: "auto", backgroundColor: "#f1f1f1" }}>
       <div
@@ -43,7 +43,7 @@ function MainDash1({ avatar }) {
             }}
           >
             <FirstDash1 />
-            <SeconDash1 avatar={avatar} />
+            <SeconDash1 avatar={avatar} description={description} />
           </div>
         </div>
       </div>

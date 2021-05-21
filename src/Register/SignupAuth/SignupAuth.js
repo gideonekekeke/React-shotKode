@@ -199,7 +199,7 @@ function Shotform(props) {
             // width: "100%",
           }}
         >
-          <div className="first_box">
+          <div className="first_box3">
             <div
               style={{
                 height: "100%",
@@ -259,7 +259,7 @@ function Shotform(props) {
             </div>
           </div>
 
-          <div className="second_box">
+          <div className="second_box3">
             <>
               {toggle ? (
                 <div>
@@ -400,8 +400,24 @@ function Shotform(props) {
                         );
                       })} */}
                       <br />
+                      <Button
+                        type="primary"
+                        block
+                        style={{
+                          marginTop: "10px",
+                        }}
+                        onClick={() => {
+                          // formValidation();
 
-                      {open ? (
+                          UploadMultipleFiles();
+                          // uploadSingleFiles();
+                          SignUpUser();
+                        }}
+                      >
+                        Continue
+                      </Button>
+
+                      {/* {open ? (
                         <SchoolProfile
                           setprofile={setprofile}
                           UploadMultipleFiles={UploadMultipleFiles}
@@ -409,7 +425,7 @@ function Shotform(props) {
                           MultipleFileChange={MultipleFileChange}
                           setDescription={setDescription}
                         />
-                      ) : null}
+                      ) : null} */}
 
                       <div
                         style={{

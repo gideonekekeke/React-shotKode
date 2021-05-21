@@ -10,7 +10,7 @@ import { app } from "../Base";
 import { GlobalContext } from "../AuthState/GlobalContext";
 import { useHistory } from "react-router-dom";
 const db = app.firestore().collection("Teachers");
-function SeconDash1({ avatar }) {
+function SeconDash1({ avatar, description }) {
   const hist = useHistory();
   const { current, currentData, currentUser } = useContext(GlobalContext);
   const [name, setName] = useState("");

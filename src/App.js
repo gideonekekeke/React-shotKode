@@ -12,7 +12,7 @@ import { GlobalProvider } from "./AuthState/GlobalContext";
 import MainDash1 from "./SchoolDashboard/MainDash1";
 import SchoolProfile from "./Register/SignupAuth/SchoolProfile";
 
-function App() {
+function App({ qualification, setQualification }) {
   return (
     <>
       <GlobalProvider>
