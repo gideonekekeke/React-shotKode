@@ -141,7 +141,7 @@ function TeachersForm() {
       dateTime: Date.now().toString(),
     });
     hist.push("/teacherdash");
-  };
+  };-
 
   const LogInNewUser = async () => {
     await app.auth().signInWithEmailAndPassword(email, password);
