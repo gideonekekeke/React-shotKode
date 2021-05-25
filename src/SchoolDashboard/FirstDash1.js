@@ -5,6 +5,9 @@ import { Button } from "antd";
 import { getMultipleFiles1, getSingleFiles1 } from "../TeachersForm/apis";
 import { app } from "../Base";
 import "./userstyle.css";
+import ic1 from "../SchoolDashboard/img/t1.png";
+import ic2 from "../SchoolDashboard/img/t2.png";
+import Connecting1 from "../ConnectingPage/Connecting1";
 
 const dataBase = app.firestore().collection("Teachers");
 
@@ -40,6 +43,17 @@ function FirstDash1({ avatar, description }) {
       console.log(error);
     }
   };
+
+  const [open, setOpen] = React.useState(false);
+
+  const handleOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
   useEffect(() => {
     getSingleFileslist();
     getMultipleFilesList();
@@ -170,16 +184,66 @@ function FirstDash1({ avatar, description }) {
                 <div style={{}} className="thelocation_dash">
                   <div
                     style={{
-                      fontWeight: "bold",
-                      width: "100px",
+                      // fontWeight: "bold",
+                      width: "200px",
                       display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
+                      marginLeft: "30px",
+                      // alignItems: "center",
+                      // justifyContent: "center",
                     }}
                   >
-                    {location}
+                    <div
+                      style={{
+                        display: "flex",
+                        // background: "red",
+                        // width: "200px",
+                        alignItems: "center",
+                      }}
+                    >
+                      <div
+                        style={{
+                          heigth: "15px",
+                          width: "15px",
+                          objectFit: "cover",
+                          // margin: "10px",
+                        }}
+                      >
+                        {" "}
+                        <img
+                          src={ic2}
+                          style={{
+                            heigth: "100%",
+                            width: "100%",
+                            objectFit: "cover",
+                            // margin: "10px",
+                          }}
+                        />
+                      </div>
+
+                      <div style={{ marginLeft: "10px", fontWeight: "bold" }}>
+                        {" "}
+                        {location}
+                      </div>
+                    </div>
                   </div>
-                  <div>{experience}</div>
+                  <div
+                    style={{
+                      display: "flex",
+                      // background: "red",
+                      alignItems: "center",
+                      marginLeft: "35px",
+                    }}
+                  >
+                    <img
+                      src={ic1}
+                      style={{
+                        height: "10px",
+                        width: "10px",
+                        objectFit: "cover",
+                      }}
+                    />
+                    <div style={{ marginLeft: "10px" }}>{experience}</div>
+                  </div>
                 </div>
                 <div
                   style={{
@@ -192,19 +256,24 @@ function FirstDash1({ avatar, description }) {
                 >
                   {subject}
                 </div>
-                <Button
-                  style={{
-                    fontSize: "25px",
-                    alignItems: "center",
-                    display: "flex",
-                    justifyContent: "center",
-                    background: "#4285f4 ",
-                    color: "white",
-                    height: "30px",
-                  }}
-                >
-                  +
-                </Button>
+                {open ? (
+                  <Connecting1 />
+                ) : (
+                  <Button
+                    onClick={handleOpen}
+                    style={{
+                      fontSize: "25px",
+                      alignItems: "center",
+                      display: "flex",
+                      justifyContent: "center",
+                      background: "#4285f4 ",
+                      color: "white",
+                      height: "30px",
+                    }}
+                  >
+                    +
+                  </Button>
+                )}
               </div>
             </div>
           )

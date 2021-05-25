@@ -5,6 +5,8 @@ import { Button } from "antd";
 import { getMultipleFiles1, getSingleFiles1 } from "../TeachersForm/apis";
 import { app } from "../Base";
 import "./userstyle.css";
+import ic2 from "../SchoolDashboard/img/t1.png";
+import Connecting1 from "../ConnectingPage/Connecting1";
 
 const dataBase = app.firestore().collection("Schools");
 
@@ -12,7 +14,6 @@ function FirstDash({ avatar, qualification }) {
   const [singleFiles, setSingleFiles] = useState([]);
   const [multipleFiles, setMultipleFiles] = useState([]);
   const [data, setData] = useState([]);
-
   const getUserData = async () => {
     await dataBase.onSnapshot((snap) => {
       const i = [];
@@ -40,6 +41,17 @@ function FirstDash({ avatar, qualification }) {
       console.log(error);
     }
   };
+
+  const [open, setOpen] = React.useState(false);
+
+  const handleOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
   useEffect(() => {
     getSingleFileslist();
     getMultipleFilesList();
@@ -158,17 +170,50 @@ function FirstDash({ avatar, qualification }) {
                   </div>
                 </div>
                 <div style={{}} className="thelocation_dash1">
-                  {/* <div
+                  <div
                     style={{
-                      fontWeight: "bold",
-                      width: "100px",
+                      // fontWeight: "bold",
+                      width: "200px",
                       display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
+                      marginLeft: "30px",
+                      // alignItems: "center",
+                      // justifyContent: "center",
                     }}
-                  > */}
-                  {schoollocation}
-                  {/* </div> */}
+                  >
+                    <div
+                      style={{
+                        display: "flex",
+                        // background: "red",
+                        // width: "200px",
+                        alignItems: "center",
+                      }}
+                    >
+                      <div
+                        style={{
+                          heigth: "15px",
+                          width: "15px",
+                          objectFit: "cover",
+                          // margin: "10px",
+                        }}
+                      >
+                        {" "}
+                        <img
+                          src={ic2}
+                          style={{
+                            heigth: "100%",
+                            width: "100%",
+                            objectFit: "cover",
+                            // margin: "10px",
+                          }}
+                        />
+                      </div>
+
+                      <div style={{ marginLeft: "10px", fontWeight: "bold" }}>
+                        {" "}
+                        {schoollocation}
+                      </div>
+                    </div>
+                  </div>
                 </div>
                 <div
                   style={{
@@ -181,19 +226,24 @@ function FirstDash({ avatar, qualification }) {
                 >
                   {subject}
                 </div>
-                <Button
-                  style={{
-                    fontSize: "25px",
-                    alignItems: "center",
-                    display: "flex",
-                    justifyContent: "center",
-                    background: "#4285f4 ",
-                    color: "white",
-                    height: "30px",
-                  }}
-                >
-                  +
-                </Button>
+                {open ? (
+                  <Connecting1 />
+                ) : (
+                  <Button
+                    onClick={handleOpen}
+                    style={{
+                      fontSize: "25px",
+                      alignItems: "center",
+                      display: "flex",
+                      justifyContent: "center",
+                      background: "#4285f4 ",
+                      color: "white",
+                      height: "30px",
+                    }}
+                  >
+                    +
+                  </Button>
+                )}
               </div>
             </div>
           )

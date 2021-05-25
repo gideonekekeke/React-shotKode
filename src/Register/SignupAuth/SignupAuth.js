@@ -172,6 +172,7 @@ function Shotform(props) {
       createdAt: new Date().toLocaleString(),
       dateTime: Date.now().toString(),
     });
+    hist.push("/schooldash");
     // hist.push("/dash");
   };
 

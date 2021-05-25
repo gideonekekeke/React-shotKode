@@ -1,0 +1,92 @@
+.thin2 {
+  background: white;
+  width: 500px;
+  top: 0;
+  left: 0;
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  flex-direction: column;
+  border-radius: 10px;
+  height: auto;
+}
+
+@media screen and (max-width: 760px) {
+  .thin2 {
+    width: 90%;
+    /* height: 500px; */
+    /* margin: 10px; */
+  }
+}
+.thin3 {
+  background: white;
+  width: 500px;
+  top: 0;
+  left: 0;
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  flex-direction: column;
+  border-radius: 10px;
+  height: auto;
+}
+
+@media screen and (max-width: 760px) {
+  .thin3 {
+    width: 90%;
+    height: 500px;
+    /* margin: 10px; */
+  }
+}
+
+.the_holler {
+  height: 1000%;
+  width: 100%;
+  display: flex;
+
+  flex-direction: column;
+  align-items: center;
+}
+
+@media screen and (max-width: 760px) {
+  .the_holler {
+    overflow-y: scroll;
+    overflow-x: scroll;
+  }
+}
+
+.the_exper {
+  width: 60%;
+  margin-top: 20px;
+}
+
+@media screen and (max-width: 760px) {
+  .the_exper {
+    width: 90%;
+  }
+}
+.the_exper1 {
+  width: 60%;
+  margin-top: 20px;
+}
+
+@media screen and (max-width: 760px) {
+  .the_exper1 {
+    width: 90%;
+  }
+}
+
+.contacting {
+  display: flex;
+  /* background-color: red; */
+  justify-content: space-between;
+  align-items: center;
+
+  width: 70%;
+}
+
+@media screen and (max-width: 760px) {
+  .contacting {
+    flex-direction: column;
+  }
+}
