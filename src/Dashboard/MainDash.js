@@ -2,6 +2,8 @@ import React from "react";
 import FirstDash from "./FirstDash";
 import HeaderView from "./HeaderView";
 import SeconDash from "../Dashboard/SeconDash";
+import MobileDash from "../MobileDash/MobileDash";
+import "./userstyle.css";
 
 function MainDash({ avatar }) {
   return (
@@ -41,10 +43,11 @@ function MainDash({ avatar }) {
               width: "100%",
             }}
           >
-            <FirstDash />
+            <FirstDash className="the_ogadash" />
             <SeconDash avatar={avatar} />
           </div>
         </div>
+        <MobileDash className="theMobile" />
       </div>
     </div>
   );

@@ -59,19 +59,7 @@ function FirstDash({ avatar, qualification }) {
   }, []);
 
   return (
-    <div
-      style={{
-        // height: "300px",
-        backgroundColor: "white",
-        width: "1000px",
-        // marginTop: "150px",
-        boxShadow: "0px 5px 7px -2px rgba(0, 0, 0, 0.35)",
-        borderRadius: "10px",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
+    <div className="the_ogadash">
       <div
         style={{
           display: "flex",
