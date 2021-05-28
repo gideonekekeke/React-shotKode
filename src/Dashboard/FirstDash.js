@@ -59,19 +59,7 @@ function FirstDash({ avatar, qualification }) {
   }, []);
 
   return (
-    <div
-      style={{
-        // height: "300px",
-        backgroundColor: "white",
-        width: "1000px",
-        // marginTop: "150px",
-        boxShadow: "0px 5px 7px -2px rgba(0, 0, 0, 0.35)",
-        borderRadius: "10px",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
+    <div className="the_ogadash">
       <div
         style={{
           display: "flex",
@@ -226,24 +214,7 @@ function FirstDash({ avatar, qualification }) {
                 >
                   {subject}
                 </div>
-                {open ? (
-                  <Connecting1 />
-                ) : (
-                  <Button
-                    onClick={handleOpen}
-                    style={{
-                      fontSize: "25px",
-                      alignItems: "center",
-                      display: "flex",
-                      justifyContent: "center",
-                      background: "#4285f4 ",
-                      color: "white",
-                      height: "30px",
-                    }}
-                  >
-                    +
-                  </Button>
-                )}
+                <Connecting1 id={id} />
               </div>
             </div>
           )

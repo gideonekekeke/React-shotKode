@@ -15,6 +15,7 @@ import Login from "./Login/Login";
 import Connecting1 from "./ConnectingPage/Connecting1";
 import Connecting2 from "./ConnectingPage/Connecting2";
 import Connecting3 from "./ConnectingPage/Connecting3";
+import PaymentPage from "./PaymentPage/PaymentPage";
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
             <Route path="/signupteacher" component={TeachersForm} />
             <Route path="/teacherdash" component={MainDash} />
             <Route path="/schooldash" component={MainDash1} />
+            <Route path="/pay" component={PaymentPage} />
           </Switch>
         </Router>
       </GlobalProvider>
