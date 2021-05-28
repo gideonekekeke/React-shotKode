@@ -9,6 +9,7 @@
   flex-direction: column;
   border-radius: 10px;
   height: auto;
+  color: rgba(0, 0, 0, 0.742);
 }
 
 @media screen and (max-width: 760px) {

@@ -2,7 +2,7 @@ import React from "react";
 import FirstDash from "./FirstDash";
 import HeaderView from "./HeaderView";
 import SeconDash from "../Dashboard/SeconDash";
-import MobileDash from "../MobileDash/MobileDash";
+import MobileDash from "../Dashboard/MobileDash/MobileDash";
 import "./userstyle.css";
 
 function MainDash({ avatar }) {

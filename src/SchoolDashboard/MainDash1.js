@@ -1,8 +1,9 @@
 import React from "react";
 import FirstDash1 from "./FirstDash1";
-
+import "./userstyle.css";
 import HeaderView from "./HeaderView1";
 import SeconDash1 from "./SeconDash1";
+import MobileDash2 from "../SchoolDashboard/MobileDash2/MobileDash2";
 
 function MainDash1({ avatar, description }) {
   return (
@@ -46,6 +47,7 @@ function MainDash1({ avatar, description }) {
             <SeconDash1 avatar={avatar} description={description} />
           </div>
         </div>
+        <MobileDash2 />
       </div>
     </div>
   );

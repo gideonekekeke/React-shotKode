@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Modal from "@material-ui/core/Modal";
 import Backdrop from "@material-ui/core/Backdrop";
 import Fade from "@material-ui/core/Fade";
 import "./report.css";
-import { useHistory } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import { Button } from "antd";
 import { CloseCircleOutlined } from "@ant-design/icons";
 import pic from "../img/1.png";
@@ -14,7 +14,31 @@ import ic1 from "../SchoolDashboard/img/t1.png";
 import ic2 from "../SchoolDashboard/img/t2.png";
 import Connecting2 from "./Connecting2";
 
+import { app } from "../Base";
+import { GlobalContext } from "../AuthState/GlobalContext";
+const db = app.firestore().collection("Teachers");
+
 function Connecting1() {
+  const { current, currentData, currentUser } = useContext(GlobalContext);
+  const [getData, setGetData] = useState([]);
+  const [commentIn, setCommentIn] = useState([]);
+  const { id } = useParams();
+
+  const getPack = async () => {
+    const docRef = await db.doc(id);
+    const docData = await docRef.get();
+
+    setGetData(docData.data());
+  };
+
+  const gettingComment = async () => {
+    const newData = await db.doc(id).get();
+    setCommentIn(newData.data());
+
+    console.log(newData);
+  };
+
+  const hist = useHistory();
   const useStyles = makeStyles((theme) => ({
     modal: {
       display: "flex",
@@ -51,6 +75,10 @@ function Connecting1() {
   const handleClose = () => {
     setOpen(false);
   };
+  useEffect(() => {
+    getPack();
+    gettingComment();
+  }, []);
 
   return (
     <>
@@ -134,7 +162,8 @@ function Connecting1() {
                 }}
               >
                 {" "}
-                Connect With Chinyere
+                Connect With {current && current.email}
+                {/* {currentUser && currentUser.fullname} */}
               </div>
               <div
                 style={{
@@ -145,7 +174,7 @@ function Connecting1() {
                 }}
               >
                 <img
-                  src={pic}
+                  src={currentData && currentData.avatar}
                   style={{
                     height: "100%",
                     width: "100%",
@@ -276,27 +305,30 @@ function Connecting1() {
                 click on the profile and input the code to get the contact
                 detals.
               </p>
-              {open ? (
-                <Connecting2 />
-              ) : (
-                <Button
-                  type="primary"
-                  block
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    height: "40px",
-                    background: "#4285f4",
-                    fontSize: "17px",
-                    borderRadius: "5px",
-                    margin: "10px",
-                    width: "90%",
-                  }}
-                >
-                  Connect
-                </Button>
-              )}
+              {/* {open ? ( */}
+              {/* <Connecting2 /> */}
+              {/* ) : ( */}
+              <Button
+                onClick={() => {
+                  hist.push("/pay");
+                }}
+                type="primary"
+                block
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  height: "40px",
+                  background: "#4285f4",
+                  fontSize: "17px",
+                  borderRadius: "5px",
+                  margin: "10px",
+                  width: "90%",
+                }}
+              >
+                Connect
+              </Button>
+              {/* )} */}
             </div>
           </motion.div>
         </Fade>
