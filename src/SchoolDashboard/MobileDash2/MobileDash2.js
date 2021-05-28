@@ -112,26 +112,7 @@ function MobileDash2() {
                   <div>Subject : {subject}</div>
                 </div>
               </div>
-
-              {open ? (
-                <Connecting1 />
-              ) : (
-                <Button
-                  onClick={handleOpen}
-                  style={{
-                    fontSize: "15px",
-                    alignItems: "center",
-                    display: "flex",
-                    justifyContent: "center",
-                    background: "#4285f4 ",
-                    color: "white",
-                    fontWeight: "bold",
-                    // height: "20px",
-                  }}
-                >
-                  +
-                </Button>
-              )}
+              <Connecting1 />
             </div>
           </div>
         )
