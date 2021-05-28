@@ -31,12 +31,12 @@ function Connecting1() {
     setGetData(docData.data());
   };
 
-  const gettingComment = async () => {
-    const newData = await db.doc(id).get();
-    setCommentIn(newData.data());
+  // const gettingComment = async () => {
+  //   const newData = await db.doc(id).get();
+  //   setCommentIn(newData.data());
 
-    console.log(newData);
-  };
+  //   console.log(newData);
+  // };
 
   const hist = useHistory();
   const useStyles = makeStyles((theme) => ({
@@ -77,7 +77,7 @@ function Connecting1() {
   };
   useEffect(() => {
     getPack();
-    gettingComment();
+    // gettingComment();
   }, []);
 
   return (
