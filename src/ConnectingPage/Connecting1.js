@@ -85,13 +85,14 @@ function Connecting1() {
       <Button
         onClick={handleOpen}
         style={{
-          fontSize: "25px",
+          fontSize: "15px",
           alignItems: "center",
           display: "flex",
           justifyContent: "center",
           background: "#4285f4 ",
           color: "white",
-          height: "30px",
+          fontWeight: "bold",
+          // height: "20px",
         }}
       >
         +

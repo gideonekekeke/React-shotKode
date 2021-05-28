@@ -112,6 +112,7 @@ function MobileDash2() {
                   <div>Subject : {subject}</div>
                 </div>
               </div>
+
               <Connecting1 />
             </div>
           </div>
