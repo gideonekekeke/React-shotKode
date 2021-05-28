@@ -10,8 +10,9 @@ import { app } from "../../Base";
 import Connecting1 from "../../ConnectingPage/Connecting1";
 const dataBase = app.firestore().collection("Teachers");
 
-function MobileDash2() {
+function MobileDash2({ id }) {
   const [data, setData] = useState([]);
+  const [getData, setGetData] = useState([]);
   const getUserData = async () => {
     await dataBase.onSnapshot((snap) => {
       const i = [];
@@ -27,8 +28,17 @@ function MobileDash2() {
     setOpen(true);
   };
 
+  const getPack = async () => {
+    const docRef = await dataBase.doc(id);
+    const docData = await docRef.get();
+
+    setGetData(docData.data());
+    console.log(docData.data());
+  };
+
   useEffect(() => {
     getUserData();
+    getPack();
   }, []);
   return (
     <div className="theMobile">
@@ -113,7 +123,7 @@ function MobileDash2() {
                 </div>
               </div>
 
-              <Connecting1 />
+              <Connecting1 id={id} />
             </div>
           </div>
         )

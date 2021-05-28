@@ -18,17 +18,31 @@ import { app } from "../Base";
 import { GlobalContext } from "../AuthState/GlobalContext";
 const db = app.firestore().collection("Teachers");
 
-function Connecting1() {
+function Connecting1({ id }) {
   const { current, currentData, currentUser } = useContext(GlobalContext);
   const [getData, setGetData] = useState([]);
   const [commentIn, setCommentIn] = useState([]);
-  const { id } = useParams();
+  const [name, setName] = useState("");
+  // const { id } = useParams();
 
   const getPack = async () => {
     const docRef = await db.doc(id);
     const docData = await docRef.get();
 
     setGetData(docData.data());
+    console.log(docData.data());
+  };
+
+  const getName = async () => {
+    const newUser = await app.auth().currentUser;
+
+    if (newUser) {
+      db.doc(id)
+        .get()
+        .then((doc) => {
+          setName(doc.data());
+        });
+    }
   };
 
   // const gettingComment = async () => {
@@ -77,6 +91,7 @@ function Connecting1() {
   };
   useEffect(() => {
     getPack();
+    getName();
     // gettingComment();
   }, []);
 
@@ -269,7 +284,7 @@ function Connecting1() {
                         fontSize: "12px",
                       }}
                     >
-                      4 years experience
+                      {getData && getData.experience}
                     </div>
                   </div>
                 </div>
@@ -290,7 +305,7 @@ function Connecting1() {
                     fontSize: "12px",
                   }}
                 >
-                  Mathematics
+                  {getData && getData.subject}
                 </div>
               </div>
               <p
