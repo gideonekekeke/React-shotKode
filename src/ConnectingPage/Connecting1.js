@@ -162,7 +162,7 @@ function Connecting1() {
                 }}
               >
                 {" "}
-                Connect With {current && current.email}
+                Connect With {getData && getData.fullname}
                 {/* {currentUser && currentUser.fullname} */}
               </div>
               <div
@@ -174,7 +174,7 @@ function Connecting1() {
                 }}
               >
                 <img
-                  src={currentData && currentData.avatar}
+                  src={getData && getData.avatar}
                   style={{
                     height: "100%",
                     width: "100%",
