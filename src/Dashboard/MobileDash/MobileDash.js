@@ -90,7 +90,7 @@ function MobileDash() {
                 </div>
               </div>
 
-              <Connecting1 />
+              <Connecting1 id={id} />
             </div>
           </div>
         )

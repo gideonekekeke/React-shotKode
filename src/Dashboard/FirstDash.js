@@ -92,7 +92,15 @@ function FirstDash({ avatar, qualification }) {
         </div>
 
         {data.map(
-          ({ id, avatar, experience, fullname, schoollocation, subject }) => (
+          ({
+            id,
+            avatar,
+            experience,
+            fullname,
+            schoollocation,
+            subject,
+            createdBy,
+          }) => (
             <div
               key={id}
               style={{
